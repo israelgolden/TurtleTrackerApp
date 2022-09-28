@@ -9,8 +9,20 @@
 # Date:   Fall 2022
 #--------------------------------------------------------------
 
-#Copy and paste one line of data as a variable
-lineString = "20616	29051	7/3/2003 9:13	3	66	33.898	-77.958	27.369	-46.309	6	0	-126	529	3	401 651134.7	0"
+#Create a variable pointing to the data file
+file_name = 'data/raw/sara.txt'
+
+#Create a file object from the filename
+file_object = open(file = file_name, mode = 'r')
+
+#Read contents of file into a list
+line_list = file_object.readlines()
+
+#Close the file
+file_object.close()
+
+#Extract one data line into a variable
+lineString = line_list[200]
 
 #Split lineString into a list of items
 lineData = lineString.split()
@@ -24,3 +36,5 @@ obs_lon = lineData[7]
 
 #Print information to the user
 print(f'Record {record_id} indicates Sara was seen at {obs_lat}N, {obs_lon}W on {obs_date}')
+
+
